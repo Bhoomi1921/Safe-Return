@@ -142,6 +142,18 @@
 # if __name__ == "__main__":
 #     app.run(port=5000, debug=True)
 
+"""
+api.py  –  Flask backend for Safe Return Face Recognition
+Matches all features in streamlit_app.py:
+  - POST /recognize      → Face recognition against database (with GA+PSO threshold)
+  - POST /compare        → Two-image face comparison (with GA+PSO threshold)
+  - GET  /threshold      → Returns the current auto-computed threshold
+  - GET  /health         → Health check
+
+Run (dev):   python api.py
+Run (prod):  gunicorn -w 2 -b 0.0.0.0:5000 api:app
+"""
+
 import os
 import io
 import base64
